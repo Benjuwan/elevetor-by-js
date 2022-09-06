@@ -1,0 +1,84 @@
+*{box-sizing: border-box;}
+
+#myUl{
+    padding: 0;
+    width: clamp(160px, 100%, 400px);
+    margin: 24px auto;
+    list-style: none;
+    background-color: #eaeaea;
+    display: grid;
+    place-items: center;
+    position: relative;
+
+    &::before{
+        content: "";
+        width: 16px;
+        height: 44px;
+        background-color: #3d3d3d;
+        position: absolute;
+        bottom: 0;
+        left: 40%;
+        transform: translate(-50%, -72px);
+        transition: transform .5s;
+    }
+
+    &.floor-02{
+        &::before{
+            transform: translate(-50%, -72*1.6px);
+        }
+    }
+    &.floor-03{
+        &::before{
+            transform: translate(-50%, -72*2.3px);
+        }
+    }
+    &.floor-04{
+        &::before{
+            transform: translate(-50%, -72*3px);
+        }
+    }
+    &.floor-05{
+        &::before{
+            transform: translate(-50%, -72*3.6px);
+        }
+    }
+    &.floor-06{
+        &::before{
+            transform: translate(-50%, -72*4.3px);
+        }
+    }
+    &.floor-07{
+        &::before{
+            transform: translate(-50%, -72*5px);
+        }
+    }
+    &.floor-08{
+        &::before{
+            transform: translate(-50%, -72*5.6px);
+        }
+    }
+
+    & li{
+        font-size: 16px;
+        cursor: pointer;
+        line-height: 3;
+
+        &:hover{
+            opacity: .5;
+        }
+        &.now{
+            transition: .5s;
+            color: orange;
+        }
+    }
+
+    & .staBox{
+        width: calc(100vw/2);
+        max-width: 400px;
+        margin: 16px auto;
+        border-top: 1px solid #b2b2b2;
+        padding-top: 8px;
+        display: flex;
+        justify-content: space-around;
+    }
+}
