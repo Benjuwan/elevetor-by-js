@@ -59,14 +59,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
                         } else {
                             // else：階数記録にクリックした階数が「含まれている（true の）」場合は階数をダブルクリックでキャンセル（階数記録から削除）
                             li.addEventListener('dblclick', (e)=>{
-                                // console.log(floorBoxes);
-                                //「,区切り」で配列：階数記録を結合して文字列に変換し、クリックした階数の加工文字(文字列：floor-0xxx)と一致すれば''(空)に置換 = 階数のキャンセル
-                                const AryJoinReplaceTarget = floorBoxes.join(',').replaceAll(`floor-0${e.target.textContent}`, '');
-                                // console.log(AryJoinReplaceTarget);
-                                
-                                // 置換して''(空)を含んだ文字列を「,区切り」で配列に変換し、filterで条件一致（''(空)に該当しない要素のみを返却した配列にする）による加工処理
-                                floorBoxes = AryJoinReplaceTarget.split(',').filter(floorItem => {
-                                    return floorItem !== '';
+                                // console.log(floorBoxes); 
+                                // filterで条件一致（クリックした階数の加工文字(文字列：floor-0xxx)に該当しない要素のみを返却した配列にする）による加工処理
+                                floorBoxes = floorBoxes.filter(floorItem => {
+                                    return floorItem !== `floor-0${e.target.textContent}`;
                                 });
                                 // console.log(floorBoxes);
                             });
